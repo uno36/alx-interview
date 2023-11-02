@@ -3,6 +3,7 @@
 
 import sys
 
+
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
@@ -24,16 +25,17 @@ if __name__ == '__main__':
     r = 0
     c = 0
 
-    # iterate through rows
+    # iterate thru rows
     while r < n:
         goback = False
-        # iterate through columns
+        # iterate thru columns
         while c < n:
-            # check if the current column is safe
+            # check is current column is safe
             safe = True
             for cord in placed_queens:
                 col = cord[1]
-                if (col == c or col + (r - cord[0]) == c or col - (r - cord[0]) == c):
+                if(col == c or col + (r-cord[0]) == c or
+                        col - (r-cord[0]) == c):
                     safe = False
                     break
 
@@ -47,8 +49,8 @@ if __name__ == '__main__':
             # place queen
             cords = [r, c]
             placed_queens.append(cords)
-            # if the last row, append the solution and reset all to the last unfinished row
-            # and the last safe column in that row
+            # if last row, append solution and reset all to last unfinished row
+            # and last safe column in that row
             if r == n - 1:
                 solutions.append(placed_queens[:])
                 for cord in placed_queens:
@@ -67,8 +69,8 @@ if __name__ == '__main__':
             break
         if stop:
             break
-        # on fail: go back to the previous row
-        # and continue from the last safe column + 1
+        # on fail: go back to previous row
+        # and continue from last safe column + 1
         if goback:
             r -= 1
             while r >= 0:

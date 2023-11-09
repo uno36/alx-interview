@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "semistandard": "^17.0.0"
+  },
+  "scripts": {
+  "lint": "semistandard --fix"
+}
+}
